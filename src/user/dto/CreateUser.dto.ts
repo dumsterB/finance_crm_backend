@@ -9,7 +9,6 @@ import {
   IsString,
   IsStrongPassword,
 } from 'class-validator';
-import { ROLES } from '../user.utils';
 
 export class CreateUserDto {
   @ApiProperty({ example: 'John Doe', description: 'User fullName' })
@@ -80,14 +79,6 @@ export class CreateUserDto {
   @IsNotEmpty({ message: 'branchId is required' })
   @IsString({ message: 'branchId must be a valid string' })
   branchId: string;
-
-  @ApiProperty({
-    example: ROLES.USER,
-    description: 'User role',
-  })
-  @IsNotEmpty({ message: 'role is required' })
-  @IsString({ message: 'role must be a valid string' })
-  role: ROLES;
 
   @ApiProperty({
     example: true,

@@ -17,30 +17,11 @@ export class AuthService {
     private hashService: HashService,
     private jwtService: JwtService,
   ) {}
-  async validateUserCredentials(
-    login: string,
-    password: string,
-  ): Promise<User | Error> {
-    const user = await this.userService.getUserByMainPhone(login);
-    if (!user) throw new NotFoundException('User not found');
-    const valid = await this.hashService.comparePassword(
-      password,
-      user.password,
-    );
-
-    if (!valid) throw new UnauthorizedException();
-
-    return user;
-  }
   async generateToken(user: ReqData['user']) {
     // Generate JWT token here
     const userData: ReqData['user'] = {
       id: user.id,
       fullName: user.fullName,
-      photo: user.photo,
-      role: user.role,
-      branchId: user.branchId,
-      superAdmin: user.superAdmin,
     };
     const access_token = await this.jwtService.signAsync(userData, {
       expiresIn: '1h',
