@@ -1,14 +1,28 @@
 import { Controller, Get,Post, Req, Query,Body } from '@nestjs/common';
 import { CreateUserDto } from './dto/CreateUser.dto';
 import { UserService } from './user.service';
-import { Request } from 'express';
+import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
+import {Income} from "../income/income.entity";
+@ApiTags('User')
 @Controller('user')
 export class UserController{
     constructor(private readonly userService: UserService) {}
+    @ApiOperation({ summary: 'Get all users' })
+    @ApiResponse({
+        status: 200,
+        type: [Income],
+        description: 'The list of users',
+    })
     @Get('/')
     findAllUser(@Query() query: any) {
         return this.userService.getUsers(query);
     }
+    @ApiOperation({ summary: 'Create a new user' })
+    @ApiResponse({
+        status: 200,
+        type: [Income],
+        description: 'The user created',
+    })
     @Post('/')
     async createUser(@Body() createUserDto: CreateUserDto) {
         try {

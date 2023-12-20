@@ -15,6 +15,16 @@ model User {
   fullName       String
   password       String
 }
+model Income {
+  id             String    @id @default(uuid())
+  name           String
+  price          String
+}
+model Outcome {
+  id             String    @id @default(uuid())
+  name           String
+  price          String
+}
 
 
 
