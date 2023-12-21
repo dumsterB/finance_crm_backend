@@ -3,6 +3,7 @@ import { CreateUserDto } from './dto/CreateUser.dto';
 import { UserService } from './user.service';
 import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import {Income} from "../income/income.entity";
+import {FindUserDto} from "./dto/FindUser.dto";
 @ApiTags('User')
 @Controller('user')
 export class UserController{
@@ -14,7 +15,7 @@ export class UserController{
         description: 'The list of users',
     })
     @Get('/')
-    findAllUser(@Query() query: any) {
+    findAllUser(@Query() query: FindUserDto) {
         return this.userService.getUsers(query);
     }
     @ApiOperation({ summary: 'Create a new user' })

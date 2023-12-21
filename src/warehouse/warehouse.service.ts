@@ -2,16 +2,16 @@ import {Injectable} from "@nestjs/common";
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
-export class IncomeService{
+export class WarehouseService {
     constructor(private prisma: PrismaService) {}
-    getAllIncome(query:any){
+    getAllWarehouse(query:any){
         let where = {};
-      return this.prisma.income.findMany({where})
+      return this.prisma.outcome.findMany({where})
     }
-    async createIncome(income: any): Promise<any> {
-        return this.prisma.income.create({
+    async createWarehouse(warehouse:any): Promise<any> {
+        return this.prisma.warehouse.create({
             data: {
-                ...income,
+                ...warehouse,
             },
         });
     }

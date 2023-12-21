@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { HashService } from './hash.service';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { FindUserDto } from './dto/FindUser.dto';
 
 @Injectable()
 export class UserService {
@@ -8,7 +9,7 @@ export class UserService {
     private hashService: HashService,
     private prisma: PrismaService,
   ) {}
-  getUsers(query: any) {
+  getUsers(query: FindUserDto) {
     let where = {};
     return this.prisma.user.findMany({
       where,

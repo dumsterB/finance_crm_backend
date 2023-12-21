@@ -25,6 +25,11 @@ model Outcome {
   name           String
   price          String
 }
+model Warehouse {
+  id             String    @id @default(uuid())
+  name           String
+  price          String
+}
 
 
 
