@@ -4,7 +4,7 @@ import { UserService } from './user.service';
 import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import {Income} from "../income/income.entity";
 import {FindUserDto} from "./dto/FindUser.dto";
-@ApiTags('User')
+@ApiTags('user')
 @Controller('user')
 export class UserController{
     constructor(private readonly userService: UserService) {}

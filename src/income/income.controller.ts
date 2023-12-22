@@ -4,8 +4,8 @@ import {ApiOperation,ApiResponse,ApiTags} from "@nestjs/swagger";
 import {Income} from "./income.entity";
 import {CreateIncomeDto} from "./dto/CreateIncome.dto";
 
-@ApiTags('Income')
-@Controller('Income')
+@ApiTags('income')
+@Controller('income')
 export class IncomeController{
     constructor(private readonly incomeService: IncomeService) {}
     @ApiOperation({ summary: 'Get all Income' })

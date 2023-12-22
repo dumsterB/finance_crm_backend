@@ -3,8 +3,8 @@ import {WarehouseService} from "./warehouse.service";
 import {ApiOperation,ApiResponse,ApiTags} from "@nestjs/swagger";
 import {Warehouse} from "./warehouse.entity";
 import {CreateWarehouse} from './dto/createWarehouse'
-@ApiTags('Warehouse')
-@Controller('Warehouse')
+@ApiTags('warehouse')
+@Controller('warehouse')
 export class WarehouseController {
     constructor(private readonly warehouseService: WarehouseService) {}
     @ApiOperation({ summary: 'Get all Warehouse' })
