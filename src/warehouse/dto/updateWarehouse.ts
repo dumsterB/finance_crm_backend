@@ -1,16 +1,7 @@
-import { ApiProperty } from '@nestjs/swagger';
+import {ApiProperty} from "@nestjs/swagger";
+import {IsOptional, IsString} from "class-validator";
 
-import {
-    ArrayMinSize,
-    IsArray,
-    IsBoolean,
-    IsNotEmpty,
-    IsOptional,
-    IsString,
-    IsStrongPassword,
-} from 'class-validator';
-
-export class CreateWarehouse {
+export class UpdateWarehouse{
     @ApiProperty({ example: 'Золото', description: 'название товара' })
     @IsOptional()
     @IsString({ message: 'название товара должна быть стракой' })
