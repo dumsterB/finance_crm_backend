@@ -9,7 +9,7 @@ export class UserService {
     private hashService: HashService,
     private prisma: PrismaService,
   ) {}
-  getUsers(query: FindUserDto) {
+  getUsers(query:any) {
     let where = {};
     return this.prisma.user.findMany({
       where,
@@ -22,5 +22,8 @@ export class UserService {
         password: await this.hashService.hash(user.password),
       },
     });
+  }
+  deleteUserById(id: string) {
+    return this.prisma.user.delete({ where: { id } });
   }
 }

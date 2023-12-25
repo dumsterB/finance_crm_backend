@@ -16,27 +16,21 @@ export class CreateUserDto {
   @IsString({ message: 'fullName must be a valid string' })
   fullName: string;
 
-  @ApiProperty({ example: ['+998 99 999 99 99'], description: 'User phone' })
-  @IsArray({ message: 'phone must be a valid array' })
-  @IsOptional()
-  @ArrayMinSize(1)
-  @IsString({ each: true, message: 'phone must be a valid string' })
-  phones?: string[];
 
   @ApiProperty({ example: '+998 99 999 99 99', description: 'Main phone' })
   @IsNotEmpty({ message: 'mainPhone is required' })
   @IsString({ message: 'phone must be a valid string' })
-  mainPhone: string;
+  phone: string;
 
   // @ApiProperty({ example: 1 })
   // @IsNotEmpty({ message: 'branch is required' })
   // branch: number;
 
   @ApiProperty({
-    example: 'photo',
-    description: 'User photo',
+    example: 1,
+    description: 'id компании',
   })
-  photo: string;
+  company_id: string;
 
   @ApiProperty({
     example: 'password',
@@ -45,7 +39,7 @@ export class CreateUserDto {
   @IsNotEmpty({ message: 'Password is required' })
   @IsStrongPassword(
     {
-      minLength: 8,
+      minLength: 5,
       minLowercase: 0,
       minUppercase: 0,
       minNumbers: 0,
@@ -56,35 +50,11 @@ export class CreateUserDto {
   @IsString({ message: 'Password must be a valid string' })
   password: string;
 
-  // @ApiProperty({
-  //   example: 'password',
-  //   description: 'User password confirmation',
-  // })
-  // @IsNotEmpty({ message: 'Password confirmation is required' })
-  // @Match('password', { message: 'Passwords do not match' })
-  // passwordConfirmation: string;
-
-  @ApiProperty({
-    example: 'passportSeries',
-    description: 'User passportSeries',
-  })
-  @IsNotEmpty({ message: 'passportSeries is required' })
-  @IsString({ message: 'passportSeries must be a valid string' })
-  passportSeries: string;
-
   @ApiProperty({
     example: '1',
     description: 'User branchId',
   })
   @IsNotEmpty({ message: 'branchId is required' })
   @IsString({ message: 'branchId must be a valid string' })
-  branchId: string;
-
-  @ApiProperty({
-    example: true,
-    description: 'User status',
-  })
-  @IsOptional()
-  @IsBoolean({ message: 'status must be a valid boolean' })
-  status: boolean;
+  branch_id: string;
 }
