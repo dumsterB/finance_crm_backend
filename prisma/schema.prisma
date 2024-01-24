@@ -33,21 +33,18 @@ model Warehouse {
   name           String
   price          String
 }
-model Branch {
-  id             String    @id @default(uuid())
-  name           String
-  login          String    @unique
-  password       String
-  branch_ids     String[]
-  users          String[]
-}
+
 model Company {
-  id             String    @id @default(uuid())
-  name           String
-  login          String    @unique
-  password       String
-  branch_ids     String[]
-  users          String[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  login     String    @unique
+  password  String
+  branches  Branch[]
 }
 
-
+model Branch {
+  id        Int       @id @default(autoincrement())
+  name      String
+  company   Company   @relation(fields: [companyId], references: [id])
+  companyId Int
+}

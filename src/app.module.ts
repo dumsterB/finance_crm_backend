@@ -7,6 +7,7 @@ import { OutcomeModule } from './outcome/outcome.module';
 import { WarehouseModule } from './warehouse/warehouse.module';
 import { AuthModule } from './auth/auth.module';
 import { CompanyModule } from './company/company.module';
+import { BranchModule } from "./branch/branch.module";
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CompanyModule } from './company/company.module';
     OutcomeModule,
     WarehouseModule,
     CompanyModule,
+    BranchModule
   ],
   controllers: [AppController],
   providers: [AppService],
