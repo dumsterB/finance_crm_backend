@@ -15,8 +15,8 @@ model User {
   fullName       String
   password       String
   phone          String
-  company_id     String
-  branch_id      String
+  company_id     Int
+  branch_id      Int
 }
 model Income {
   id             String    @id @default(uuid())
