@@ -6,4 +6,5 @@ export class Company implements CompanyModel {
     login:string;
     password: string;
     branch_ids: string[];
+    users: string[]
 }

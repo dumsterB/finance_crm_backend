@@ -14,6 +14,9 @@ model User {
   id             String    @id @default(uuid())
   fullName       String
   password       String
+  phone          String
+  company_id     String
+  branch_id      String
 }
 model Income {
   id             String    @id @default(uuid())
@@ -30,6 +33,21 @@ model Warehouse {
   name           String
   price          String
 }
-
+model Branch {
+  id             String    @id @default(uuid())
+  name           String
+  login          String    @unique
+  password       String
+  branch_ids     String[]
+  users          String[]
+}
+model Company {
+  id             String    @id @default(uuid())
+  name           String
+  login          String    @unique
+  password       String
+  branch_ids     String[]
+  users          String[]
+}
 
 
